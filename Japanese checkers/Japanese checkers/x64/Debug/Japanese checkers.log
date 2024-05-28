@@ -1,0 +1,119 @@
+﻿  Game.cpp
+D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Player.h(83,7): error C2535: 'void HumanPlayer::setPiece(Piece)': member function already defined or declared
+  (compiling source file 'Game.cpp')
+  D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Player.h(78,7):
+  see declaration of 'HumanPlayer::setPiece'
+  
+D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Player.h(120,7): error C2535: 'void ComputerPlayer::setPiece(Piece)': member function already defined or declared
+  (compiling source file 'Game.cpp')
+  D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Player.h(91,7):
+  see declaration of 'ComputerPlayer::setPiece'
+  
+D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Game.h(29,7): error C2535: 'bool Game::checkWin(int,int)': member function already defined or declared
+  (compiling source file 'Game.cpp')
+  D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Game.h(23,7):
+  see declaration of 'Game::checkWin'
+  
+D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Game.h(32,7): error C2535: 'void Game::switchPlayer(void)': member function already defined or declared
+  (compiling source file 'Game.cpp')
+  D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Game.h(19,7):
+  see declaration of 'Game::switchPlayer'
+  
+D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Game.h(41,7): error C2535: 'void Game::printBoard(void)': member function already defined or declared
+  (compiling source file 'Game.cpp')
+  D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Game.h(21,7):
+  see declaration of 'Game::printBoard'
+  
+D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Game.h(45,7): error C2535: 'bool Game::checkWin(int,int)': member function already defined or declared
+  (compiling source file 'Game.cpp')
+  D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Game.h(23,7):
+  see declaration of 'Game::checkWin'
+  
+D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Game.h(49,7): error C2535: 'bool Game::placePiece(int,int,Piece)': member function already defined or declared
+  (compiling source file 'Game.cpp')
+  D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Game.h(25,7):
+  see declaration of 'Game::placePiece'
+  
+D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Game.h(53,7): error C2535: 'bool Game::checkDirection(int,int,int,int)': member function already defined or declared
+  (compiling source file 'Game.cpp')
+  D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Game.h(27,7):
+  see declaration of 'Game::checkDirection'
+  
+D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Game.h(57,7): error C2535: 'bool Game::checkWin(int,int)': member function already defined or declared
+  (compiling source file 'Game.cpp')
+  D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Game.h(23,7):
+  see declaration of 'Game::checkWin'
+  
+D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Game.h(54,16): error C2248: 'Board::checkDirection': cannot access private member declared in class 'Board'
+  (compiling source file 'Game.cpp')
+  D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Board.h(19,10):
+  see declaration of 'Board::checkDirection'
+  D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Board.h(9,7):
+  see declaration of 'Board'
+  
+  main.cpp
+D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Player.h(83,7): error C2535: 'void HumanPlayer::setPiece(Piece)': member function already defined or declared
+  (compiling source file 'main.cpp')
+  D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Player.h(78,7):
+  see declaration of 'HumanPlayer::setPiece'
+  
+D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Player.h(120,7): error C2535: 'void ComputerPlayer::setPiece(Piece)': member function already defined or declared
+  (compiling source file 'main.cpp')
+  D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Player.h(91,7):
+  see declaration of 'ComputerPlayer::setPiece'
+  
+D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Game.h(29,7): error C2535: 'bool Game::checkWin(int,int)': member function already defined or declared
+  (compiling source file 'main.cpp')
+  D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Game.h(23,7):
+  see declaration of 'Game::checkWin'
+  
+D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Game.h(32,7): error C2535: 'void Game::switchPlayer(void)': member function already defined or declared
+  (compiling source file 'main.cpp')
+  D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Game.h(19,7):
+  see declaration of 'Game::switchPlayer'
+  
+D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Game.h(41,7): error C2535: 'void Game::printBoard(void)': member function already defined or declared
+  (compiling source file 'main.cpp')
+  D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Game.h(21,7):
+  see declaration of 'Game::printBoard'
+  
+D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Game.h(45,7): error C2535: 'bool Game::checkWin(int,int)': member function already defined or declared
+  (compiling source file 'main.cpp')
+  D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Game.h(23,7):
+  see declaration of 'Game::checkWin'
+  
+D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Game.h(49,7): error C2535: 'bool Game::placePiece(int,int,Piece)': member function already defined or declared
+  (compiling source file 'main.cpp')
+  D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Game.h(25,7):
+  see declaration of 'Game::placePiece'
+  
+D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Game.h(53,7): error C2535: 'bool Game::checkDirection(int,int,int,int)': member function already defined or declared
+  (compiling source file 'main.cpp')
+  D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Game.h(27,7):
+  see declaration of 'Game::checkDirection'
+  
+D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Game.h(57,7): error C2535: 'bool Game::checkWin(int,int)': member function already defined or declared
+  (compiling source file 'main.cpp')
+  D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Game.h(23,7):
+  see declaration of 'Game::checkWin'
+  
+D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Game.h(54,16): error C2248: 'Board::checkDirection': cannot access private member declared in class 'Board'
+  (compiling source file 'main.cpp')
+  D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Board.h(19,10):
+  see declaration of 'Board::checkDirection'
+  D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Board.h(9,7):
+  see declaration of 'Board'
+  
+D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\main.cpp(128,12): error C2039: 'winner': is not a member of 'Game'
+  D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Game.h(8,7):
+  see declaration of 'Game'
+  
+D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\main.cpp(135,12): error C2039: 'winner': is not a member of 'Game'
+  D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Game.h(8,7):
+  see declaration of 'Game'
+  
+D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\main.cpp(136,37): error C2039: 'winner': is not a member of 'Game'
+  D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\Game.h(8,7):
+  see declaration of 'Game'
+  
+  Generating Code...
