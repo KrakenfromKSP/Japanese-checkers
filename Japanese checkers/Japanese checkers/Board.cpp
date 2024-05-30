@@ -1,21 +1,31 @@
 // Board.cpp
 #include "Board.h"
+#include <iostream>
 
-Board::Board(int size) : size(size), grid(size, std::vector<Piece>(size, Piece::Empty)) {}
+//Constructor of Board with grid parameter
+Board::Board(const std::vector<std::vector<Piece>>& grid) : grid(grid) {}
+
+//Copy constructor of Board
+Board::Board(const Board& other) : grid(other.grid) {}
+
+//Constructor of Board
+Board::Board() {
+	grid = std::vector<std::vector<Piece>>(15, std::vector<Piece>(15, Piece::Empty));
+}
 
 bool Board::placePiece(int x, int y, Piece piece) {
-    if (x >= 0 && x < size && y >= 0 && y < size && grid[x][y] == Piece::Empty) {
-        grid[x][y] = piece;
-        return true;
+    if (x < 0 || x >= 15 || y < 0 || y >= 15 || grid[x][y] != Piece::Empty) {
+        return false;
     }
-    return false;
+    grid[x][y] = piece;
+    return true;
 }
 
 Piece Board::getPiece(int x, int y) const {
-    if (x >= 0 && x < size && y >= 0 && y < size) {
-        return grid[x][y];
+    if (x < 0 || x >= 15 || y < 0 || y >= 15) {
+        return Piece::Empty;
     }
-    return Piece::Empty;
+    return grid[x][y];
 }
 
 bool Board::checkWin(int x, int y) const {
@@ -59,23 +69,6 @@ bool Board::checkDirection(int x, int y, int dx, int dy) const {
     }
 
     return count >= 5;
-}
-
-// Show board function
-void Board::printBoard() const {
-    for (const auto& row : grid) {
-        for (const auto& cell : row) {
-            char symbol = '.';
-            if (cell == Piece::Black) {
-                symbol = 'B';
-            }
-            else if (cell == Piece::White) {
-                symbol = 'W';
-            }
-            std::cout << symbol << " ";
-        }
-        std::cout << std::endl;
-    }
 }
 
 // Function to draw a filled circle
