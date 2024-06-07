@@ -1,14 +1,2 @@
 ﻿  main.cpp
-D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\main.cpp(35,85): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\main.cpp(35,50): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\main.cpp(37,83): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\main.cpp(37,62): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\main.cpp(39,83): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\main.cpp(39,62): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\main.cpp(43,83): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\main.cpp(43,62): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\main.cpp(45,83): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\main.cpp(45,62): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\main.cpp(47,83): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\main.cpp(47,62): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
   Japanese checkers.vcxproj -> D:\Study\OOP\Curse\Japanese checkers\x64\Debug\Japanese checkers.exe

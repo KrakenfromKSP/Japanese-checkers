@@ -1,16 +1,31 @@
+//Japanese checkers
+//main.cpp
 #include <SDL.h>
 #include <SDL_net.h>
+#include <SDL_ttf.h>
 #include <iostream>
+#include <string>
 #include "Game.h"
 
 const int GRID_SIZE = 15;
 const int CELL_SIZE = 50;
 const int WINDOW_WIDTH = 15 * CELL_SIZE;
 const int WINDOW_HEIGHT = 15 * CELL_SIZE;
+const int MAX_BUFFER_SIZE = 512;
 
 void cleanup() {
     SDLNet_Quit();
+    TTF_Quit();
     SDL_Quit();
+}
+
+void drawText(SDL_Renderer* renderer, const char* text, int x, int y, SDL_Color color, TTF_Font* font) {
+    SDL_Surface* surface = TTF_RenderText_Blended(font, text, color);
+    SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, surface);
+    SDL_Rect destRect = { x, y, surface->w, surface->h };
+    SDL_RenderCopy(renderer, texture, nullptr, &destRect);
+    SDL_FreeSurface(surface);
+    SDL_DestroyTexture(texture);
 }
 
 void renderBoard(SDL_Renderer* renderer, Board& board) {
@@ -32,24 +47,43 @@ void renderBoard(SDL_Renderer* renderer, Board& board) {
             if (piece != Piece::Empty) {
                 if (piece == Piece::Black) {
                     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-                    drawFilledCircle(renderer, x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE / 2);
-                    SDL_SetRenderDrawColor(renderer, 50, 50, 50, 255);
-                    drawFilledCircle(renderer, x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE / 3);
-                    SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
-                    drawFilledCircle(renderer, x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE / 5);
+                    drawFilledCircle(renderer, x * CELL_SIZE + CELL_SIZE / 2, y * CELL_SIZE + CELL_SIZE / 2, CELL_SIZE / 2);
                 }
                 else {
                     SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-                    drawFilledCircle(renderer, x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE / 2);
-                    SDL_SetRenderDrawColor(renderer, 230, 230, 230, 255);
-                    drawFilledCircle(renderer, x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE / 3);
-                    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
-                    drawFilledCircle(renderer, x * CELL_SIZE, y * CELL_SIZE, CELL_SIZE / 5);
+                    drawFilledCircle(renderer, x * CELL_SIZE + CELL_SIZE / 2, y * CELL_SIZE + CELL_SIZE / 2, CELL_SIZE / 2);
                 }
             }
         }
     }
 }
+
+struct Button {
+    SDL_Rect rect;
+    SDL_Color color;
+    SDL_Color hoverColor;
+    const char* text;
+    bool isHovered;
+
+    Button(int x, int y, int w, int h, SDL_Color color, SDL_Color hoverColor, const char* text)
+        : rect{ x, y, w, h }, color(color), hoverColor(hoverColor), text(text), isHovered(false) {}
+
+    void render(SDL_Renderer* renderer, TTF_Font* font) {
+        SDL_Color currentColor = isHovered ? hoverColor : color;
+        SDL_SetRenderDrawColor(renderer, currentColor.r, currentColor.g, currentColor.b, currentColor.a);
+        SDL_RenderFillRect(renderer, &rect);
+
+        // Draw button text
+        SDL_Color textColor = { 255, 255, 255, 255 }; // White text color
+        int textWidth, textHeight;
+        TTF_SizeText(font, text, &textWidth, &textHeight);
+        drawText(renderer, text, rect.x + (rect.w - textWidth) / 2, rect.y + (rect.h - textHeight) / 2, textColor, font);
+    }
+
+    bool isMouseOver(int mouseX, int mouseY) {
+        return mouseX >= rect.x && mouseY >= rect.y && mouseX <= rect.x + rect.w && mouseY <= rect.y + rect.h;
+    }
+};
 
 int main(int argc, char* argv[]) {
     if (SDL_Init(SDL_INIT_VIDEO) < 0) {
@@ -59,6 +93,22 @@ int main(int argc, char* argv[]) {
 
     if (SDLNet_Init() < 0) {
         std::cerr << "SDLNet_Init Error: " << SDLNet_GetError() << std::endl;
+        SDL_Quit();
+        return 1;
+    }
+
+    if (TTF_Init() == -1) {
+        std::cerr << "TTF_Init Error: " << TTF_GetError() << std::endl;
+        SDLNet_Quit();
+        SDL_Quit();
+        return 1;
+    }
+
+    TTF_Font* font = TTF_OpenFont("arial.ttf", 24);
+    if (!font) {
+        std::cerr << "TTF_OpenFont Error: " << TTF_GetError() << std::endl;
+        TTF_Quit();
+        SDLNet_Quit();
         SDL_Quit();
         return 1;
     }
@@ -98,8 +148,18 @@ int main(int argc, char* argv[]) {
 
     Game game;
     SDL_Event event;
-    int mouseX, mouseY;
+    int mouseX{}, mouseY{};
     int highlightX = -1, highlightY = -1;
+
+    Game::GameState gameState = game.MENU;
+
+    Button startButton(WINDOW_WIDTH / 2 - 100, WINDOW_HEIGHT / 2 - 25, 200, 50, { 0, 0, 255, 255 }, { 0, 0, 200, 255 }, "Start Game");
+    Button passTurnButton(WINDOW_WIDTH / 2 - 100, WINDOW_HEIGHT / 2 + 50, 200, 50, { 0, 255, 0, 255 }, { 0, 200, 0, 255 }, "Pass Turn Mode");
+    Button multiplayerButton(WINDOW_WIDTH / 2 - 100, WINDOW_HEIGHT / 2 + 125, 200, 50, { 255, 0, 0, 255 }, { 200, 0, 0, 255 }, "Multiplayer");
+    Button connectButton(WINDOW_WIDTH / 2 - 100, WINDOW_HEIGHT / 2 + 50, 200, 50, { 0, 255, 0, 255 }, { 0, 200, 0, 255 }, "Connect");
+
+    std::string ipInput = "";
+    bool ipInputActive = false;
 
     bool quit = false;
     while (!quit) {
@@ -108,28 +168,92 @@ int main(int argc, char* argv[]) {
                 quit = true;
             }
             else if (event.type == SDL_MOUSEBUTTONDOWN) {
-                int x = event.button.x / CELL_SIZE;
-                int y = event.button.y / CELL_SIZE;
-                game.handleInput(x, y);
+                if (gameState == Game::MENU && startButton.isMouseOver(mouseX, mouseY)) {
+                    gameState = Game::MODE_SELECTION;
+                }
+                else if (gameState == Game::MODE_SELECTION && passTurnButton.isMouseOver(mouseX, mouseY)) {
+                    gameState = Game::GAME;
+                }
+                else if (gameState == Game::MODE_SELECTION && multiplayerButton.isMouseOver(mouseX, mouseY)) {
+                    gameState = Game::MULTIPLAYER;
+                }
+                else if (gameState == Game::MULTIPLAYER && connectButton.isMouseOver(mouseX, mouseY)) {
+                    // Connect to server with entered IP address
+                    if (SDLNet_ResolveHost(&ip, ipInput.c_str(), 12345) < 0) {
+                        std::cerr << "SDLNet_ResolveHost Error: " << SDLNet_GetError() << std::endl;
+                    }
+                    else {
+                        TCPsocket client = SDLNet_TCP_Open(&ip);
+                        if (!client) {
+                            std::cerr << "SDLNet_TCP_Open Error: " << SDLNet_GetError() << std::endl;
+                        }
+                        else {
+                            std::cout << "Connected to " << ipInput << std::endl;
+                            gameState = Game::GAME;
+                        }
+                    }
+                }
+                else if (gameState == Game::MULTIPLAYER) {
+                    ipInputActive = true;
+                }
+                else if (gameState == Game::GAME) {
+                    int x = event.button.x / CELL_SIZE;
+                    int y = event.button.y / CELL_SIZE;
+                    game.handleInput(x, y);
+                }
+            }
+            else if (event.type == SDL_TEXTINPUT || event.type == SDL_KEYDOWN) {
+                if (gameState == Game::MULTIPLAYER && ipInputActive) {
+                    if (event.type == SDL_TEXTINPUT) {
+                        ipInput += event.text.text;
+                    }
+                    else if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_BACKSPACE && !ipInput.empty()) {
+                        ipInput.pop_back();
+                    }
+                }
             }
             else if (event.type == SDL_MOUSEMOTION) {
                 SDL_GetMouseState(&mouseX, &mouseY);
                 highlightX = mouseX / CELL_SIZE;
                 highlightY = mouseY / CELL_SIZE;
+
+                // Update button hover states
+                startButton.isHovered = startButton.isMouseOver(mouseX, mouseY);
+                passTurnButton.isHovered = passTurnButton.isMouseOver(mouseX, mouseY);
+                multiplayerButton.isHovered = multiplayerButton.isMouseOver(mouseX, mouseY);
+                connectButton.isHovered = connectButton.isMouseOver(mouseX, mouseY);
             }
         }
 
-        renderBoard(renderer, game.getBoard());
+        SDL_SetRenderDrawColor(renderer, 240, 240, 240, 255);
+        SDL_RenderClear(renderer);
 
-        if (highlightX >= 0 && highlightY >= 0 && highlightX < GRID_SIZE && highlightY < GRID_SIZE) {
-            SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND); // Set blend mode to enable transparency
-            SDL_SetRenderDrawColor(renderer, 200, 200, 200, 128);
-            SDL_Rect highlightRect = { highlightX * CELL_SIZE, highlightY * CELL_SIZE, CELL_SIZE, CELL_SIZE };
-            SDL_RenderFillRect(renderer, &highlightRect);
+        if (gameState == game.MENU) {
+            drawText(renderer, "Japanese Checkers", WINDOW_WIDTH / 2 - 150, WINDOW_HEIGHT / 4, { 0, 0, 0, 255 }, font);
+            startButton.render(renderer, font);
+        }
+        else if (gameState == game.MODE_SELECTION) {
+            drawText(renderer, "Select Game Mode", WINDOW_WIDTH / 2 - 150, WINDOW_HEIGHT / 4, { 0, 0, 0, 255 }, font);
+            passTurnButton.render(renderer, font);
+            multiplayerButton.render(renderer, font);
+        }
+        else if (gameState == game.MULTIPLAYER) {
+            drawText(renderer, "Enter IP Address", WINDOW_WIDTH / 2 - 100, WINDOW_HEIGHT / 2 - 50, { 0, 0, 0, 255 }, font);
+            connectButton.render(renderer, font);
+            drawText(renderer, ipInput.c_str(), WINDOW_WIDTH / 2 - 100, WINDOW_HEIGHT / 2, { 0, 0, 0, 255 }, font);
+        }
+        else if (gameState == game.GAME) {
+            renderBoard(renderer, game.getBoard());
+
+            if (highlightX >= 0 && highlightY >= 0 && highlightX < GRID_SIZE && highlightY < GRID_SIZE) {
+                SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND); // Set blend mode to enable transparency
+                SDL_SetRenderDrawColor(renderer, 200, 200, 200, 128);
+                SDL_Rect highlightRect = { highlightX * CELL_SIZE, highlightY * CELL_SIZE, CELL_SIZE, CELL_SIZE };
+                SDL_RenderFillRect(renderer, &highlightRect);
+            }
         }
 
         SDL_RenderPresent(renderer);
-
         SDL_Delay(1000 / 60);
     }
 

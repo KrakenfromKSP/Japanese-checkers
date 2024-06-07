@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\SDL2-2.30.3\include;D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\SDL2_net-2.2.0\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\SDL2-2.30.3\include;D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\SDL2_net-2.2.0\include;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\SDL2-2.30.3\include;D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\SDL2_net-2.2.0\include;D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\SDL2_ttf-2.22.0\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\SDL2-2.30.3\include;D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\SDL2_net-2.2.0\include;D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\SDL2_ttf-2.22.0\include;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -112,7 +112,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\SDL2-2.30.3\lib\x64\SDL2.lib;D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\SDL2-2.30.3\lib\x64\SDL2main.lib;D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\SDL2_net-2.2.0\lib\x64\SDL2_net.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\SDL2-2.30.3\lib\x64\SDL2.lib;D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\SDL2-2.30.3\lib\x64\SDL2main.lib;D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\SDL2_net-2.2.0\lib\x64\SDL2_net.lib;D:\Study\OOP\Curse\Japanese checkers\Japanese checkers\SDL2_ttf-2.22.0\lib\x64\SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -133,6 +133,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Board.h" />
+    <ClInclude Include="Button.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Piece.h" />
     <ClInclude Include="Player.h" />

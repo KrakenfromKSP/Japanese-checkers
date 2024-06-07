@@ -5,20 +5,15 @@
 Game::Game() : player1(Piece::Black), player2(Piece::White), currentPlayer(&player1) {}
 
 void Game::handleInput(int x, int y) {
-    if (board.placePiece(x, y, currentPlayer->getPiece())) {
-        if (board.checkWin(x, y)) {
-            std::cout << "Player " << (currentPlayer->getPiece() == Piece::Black ? "Black" : "White") << " wins!" << std::endl;
-        }
-        else {
-            switchPlayer();
-        }
+    if (board.placePiece(x, y, currentPlayer->getPiece()) == true) {
+        switchPlayer();
     }
     else {
-        std::cout << "Invalid move. Try again." << std::endl;
+        std::cout << "Invalid move. Try again." << '\n';
     }
 
     if (board.checkWin(x, y)) {
-        std::cout << "Player " << (currentPlayer->getPiece() == Piece::Black ? "Black" : "White") << " wins!" << std::endl;
+        std::cout << "Player " << (currentPlayer->getPiece() == Piece::Black ? "Black" : "White") << " wins!" << '\n';
     }
     else {
         switchPlayer();

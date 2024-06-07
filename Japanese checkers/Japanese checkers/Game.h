@@ -11,7 +11,12 @@ public:
     void handleInput(int x, int y);
     void switchPlayer();
     Board& getBoard();
-
+    enum GameState {
+        MENU,
+        MODE_SELECTION,
+        GAME,
+        MULTIPLAYER
+    };
 private:
     Player player1;
     Player player2;

@@ -28,6 +28,25 @@ Piece Board::getPiece(int x, int y) const {
     return grid[x][y];
 }
 
+bool Board::checkDirection(int x, int y, int dx, int dy) const {
+    Piece piece = getPiece(x, y);
+    if (piece == Piece::Empty) return false;
+
+    int count = 1;
+    int nx = x + dx;
+    int ny = y + dy;
+    while (getPiece(nx, ny) == piece) {
+        count++;
+        nx += dx;
+        ny += dy;
+        if (nx < 0 || nx >= 15 || ny < 0 || ny >= 15) {
+            break;
+        }
+    }
+
+    return count >= 5;
+}
+
 bool Board::checkWin(int x, int y) const {
     Piece piece = getPiece(x, y);
     if (piece == Piece::Empty) return false;
@@ -35,40 +54,12 @@ bool Board::checkWin(int x, int y) const {
     // Check all directions: horizontal, vertical, and two diagonals
     const int directions[4][2] = { {1, 0}, {0, 1}, {1, 1}, {1, -1} };
     for (const auto& dir : directions) {
-        if (checkDirection(x, y, dir[0], dir[1])) return true;
+        if (checkDirection(x, y, dir[0], dir[1])) {
+            return true;
+        }
     }
+
     return false;
-}
-
-bool Board::checkDirection(int x, int y, int dx, int dy) const {
-    Piece piece = getPiece(x, y);
-    int count = 1;
-
-    // Check one direction
-    for (int step = 1; step < 5; ++step) {
-        int nx = x + step * dx;
-        int ny = y + step * dy;
-        if (getPiece(nx, ny) == piece) {
-            count++;
-        }
-        else {
-            break;
-        }
-    }
-
-    // Check the opposite direction
-    for (int step = 1; step < 5; ++step) {
-        int nx = x - step * dx;
-        int ny = y - step * dy;
-        if (getPiece(nx, ny) == piece) {
-            count++;
-        }
-        else {
-            break;
-        }
-    }
-
-    return count >= 5;
 }
 
 // Function to draw a filled circle

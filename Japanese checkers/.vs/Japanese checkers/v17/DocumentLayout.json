@@ -7,16 +7,12 @@
       "RelativeMoniker": "D:0:0:{26E7E130-7139-4D85-A01F-4CF5CEF3634A}|Japanese checkers\\Japanese checkers.vcxproj|solutionrelative:Japanese checkers\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{26E7E130-7139-4D85-A01F-4CF5CEF3634A}|Japanese checkers\\Japanese checkers.vcxproj|D:\\Study\\OOP\\Curse\\Japanese checkers\\Japanese checkers\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{26E7E130-7139-4D85-A01F-4CF5CEF3634A}|Japanese checkers\\Japanese checkers.vcxproj|solutionrelative:Japanese checkers\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{26E7E130-7139-4D85-A01F-4CF5CEF3634A}|Japanese checkers\\Japanese checkers.vcxproj|D:\\Study\\OOP\\Curse\\Japanese checkers\\Japanese checkers\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{26E7E130-7139-4D85-A01F-4CF5CEF3634A}|Japanese checkers\\Japanese checkers.vcxproj|solutionrelative:Japanese checkers\\Game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{26E7E130-7139-4D85-A01F-4CF5CEF3634A}|Japanese checkers\\Japanese checkers.vcxproj|D:\\Study\\OOP\\Curse\\Japanese checkers\\Japanese checkers\\Piece.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{26E7E130-7139-4D85-A01F-4CF5CEF3634A}|Japanese checkers\\Japanese checkers.vcxproj|solutionrelative:Japanese checkers\\Piece.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{26E7E130-7139-4D85-A01F-4CF5CEF3634A}|Japanese checkers\\Japanese checkers.vcxproj|D:\\Study\\OOP\\Curse\\Japanese checkers\\Japanese checkers\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{26E7E130-7139-4D85-A01F-4CF5CEF3634A}|Japanese checkers\\Japanese checkers.vcxproj|solutionrelative:Japanese checkers\\Game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{26E7E130-7139-4D85-A01F-4CF5CEF3634A}|Japanese checkers\\Japanese checkers.vcxproj|D:\\Study\\OOP\\Curse\\Japanese checkers\\Japanese checkers\\Board.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -29,6 +25,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{26E7E130-7139-4D85-A01F-4CF5CEF3634A}|Japanese checkers\\Japanese checkers.vcxproj|D:\\Study\\OOP\\Curse\\Japanese checkers\\Japanese checkers\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{26E7E130-7139-4D85-A01F-4CF5CEF3634A}|Japanese checkers\\Japanese checkers.vcxproj|solutionrelative:Japanese checkers\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26E7E130-7139-4D85-A01F-4CF5CEF3634A}|Japanese checkers\\Japanese checkers.vcxproj|D:\\Study\\OOP\\Curse\\Japanese checkers\\Japanese checkers\\Button.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{26E7E130-7139-4D85-A01F-4CF5CEF3634A}|Japanese checkers\\Japanese checkers.vcxproj|solutionrelative:Japanese checkers\\Button.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{26E7E130-7139-4D85-A01F-4CF5CEF3634A}|Japanese checkers\\Japanese checkers.vcxproj|D:\\Study\\OOP\\Curse\\Japanese checkers\\Japanese checkers\\Piece.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{26E7E130-7139-4D85-A01F-4CF5CEF3634A}|Japanese checkers\\Japanese checkers.vcxproj|solutionrelative:Japanese checkers\\Piece.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -48,40 +52,40 @@
               "RelativeDocumentMoniker": "Japanese checkers\\main.cpp",
               "ToolTip": "D:\\Study\\OOP\\Curse\\Japanese checkers\\Japanese checkers\\main.cpp",
               "RelativeToolTip": "Japanese checkers\\main.cpp",
-              "ViewState": "AQIAABAAAAAAAAAAAAAEwBwAAAAiAAAA",
+              "ViewState": "AQIAAOIAAAAAAAAAAAAgwAsBAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-21T07:11:49.713Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Game.cpp",
               "DocumentMoniker": "D:\\Study\\OOP\\Curse\\Japanese checkers\\Japanese checkers\\Game.cpp",
               "RelativeDocumentMoniker": "Japanese checkers\\Game.cpp",
               "ToolTip": "D:\\Study\\OOP\\Curse\\Japanese checkers\\Japanese checkers\\Game.cpp",
               "RelativeToolTip": "Japanese checkers\\Game.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAfAAAA",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAMwB0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-21T07:11:40.235Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Game.h",
               "DocumentMoniker": "D:\\Study\\OOP\\Curse\\Japanese checkers\\Japanese checkers\\Game.h",
               "RelativeDocumentMoniker": "Japanese checkers\\Game.h",
               "ToolTip": "D:\\Study\\OOP\\Curse\\Japanese checkers\\Japanese checkers\\Game.h",
               "RelativeToolTip": "Japanese checkers\\Game.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAWAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAGAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-05-21T07:11:32.041Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "Player.h",
               "DocumentMoniker": "D:\\Study\\OOP\\Curse\\Japanese checkers\\Japanese checkers\\Player.h",
               "RelativeDocumentMoniker": "Japanese checkers\\Player.h",
@@ -94,20 +98,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "Board.cpp",
               "DocumentMoniker": "D:\\Study\\OOP\\Curse\\Japanese checkers\\Japanese checkers\\Board.cpp",
               "RelativeDocumentMoniker": "Japanese checkers\\Board.cpp",
               "ToolTip": "D:\\Study\\OOP\\Curse\\Japanese checkers\\Japanese checkers\\Board.cpp",
               "RelativeToolTip": "Japanese checkers\\Board.cpp",
-              "ViewState": "AQIAAC0AAAAAAAAAAAAUwEIAAAASAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAEEAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-05-30T07:59:06.143Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "Board.h",
               "DocumentMoniker": "D:\\Study\\OOP\\Curse\\Japanese checkers\\Japanese checkers\\Board.h",
               "RelativeDocumentMoniker": "Japanese checkers\\Board.h",
@@ -120,7 +124,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 7,
               "Title": "Piece.h",
               "DocumentMoniker": "D:\\Study\\OOP\\Curse\\Japanese checkers\\Japanese checkers\\Piece.h",
               "RelativeDocumentMoniker": "Japanese checkers\\Piece.h",
@@ -128,8 +132,19 @@
               "RelativeToolTip": "Japanese checkers\\Piece.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-05-21T07:09:34.216Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-21T07:09:34.216Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Button.h",
+              "DocumentMoniker": "D:\\Study\\OOP\\Curse\\Japanese checkers\\Japanese checkers\\Button.h",
+              "RelativeDocumentMoniker": "Japanese checkers\\Button.h",
+              "ToolTip": "D:\\Study\\OOP\\Curse\\Japanese checkers\\Japanese checkers\\Button.h",
+              "RelativeToolTip": "Japanese checkers\\Button.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-31T17:01:10.323Z"
             }
           ]
         }
